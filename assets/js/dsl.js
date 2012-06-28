@@ -22,7 +22,9 @@ var run = function(application) {
 
 // reg a click to [id]_button, displays id (if it exists) and executes callback (if it exists)
 , when = function(id, callback) {
+	alert('when ' + id);
     x$(id + '_button').on('touchstart', function () {
+		alert('touchstart');
         if (x$(id).length > 0)
             display(id);
         if (callback)
