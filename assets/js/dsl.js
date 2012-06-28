@@ -14,7 +14,7 @@ var run = function(application) {
 
 // shows id passed
 , display = function(id) {
-    x$(["#welcome", "#map", "#settings"]).each(function(e, i) {
+    x$(["#welcome", "#info"]).each(function(e, i) {
         var display = '#' + x$(e)[0].id === id ? 'block' : 'none';
         x$(e).css({ 'display':display })
     });
@@ -29,13 +29,4 @@ var run = function(application) {
             callback.call(this);
 		return false;
     });
-}
-
-// gets the value of the setting from the ui
-, ui = function(setting) {
-    var radio = x$('#settings_form')[0][setting];
-    for (var i = 0, l = radio.length; i < l; i++) {
-        if (radio[i].checked)
-            return radio[i].value;
-    }
 };
