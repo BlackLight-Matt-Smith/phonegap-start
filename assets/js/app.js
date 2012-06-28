@@ -2,9 +2,15 @@
 //  --- our app behavior logic ---
 //
 run(function () {
-    // immediately invoked on first run
+	var showInfo = function(){
+		store.get('data', function(data) {
+			showInfo(data);
+			display('#info');
+		});
+	};
+	
     var init = (function () {
-		alert('init');
+		alert('init 15:04');
 		store.get('data', function(data) {
 			if (data) {
 				showInfo();
@@ -13,16 +19,11 @@ run(function () {
 			}
 		});
     })();
-	
-	var showInfo = function(){
-		store.get('data', function(data) {
-			showInfo(data);
-			display('#info');
-		});
-	};
     
     // a little inline controller
+	alert('about to call when(welcome)');
     when('#welcome');
+	alert('about to call when(getinfo)');
     when('#getinfo', function() {
 		alert('Trying to get info now');
 		if (navigator.network.connection.type == Connection.NONE) {
