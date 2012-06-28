@@ -4,6 +4,7 @@
 run(function () {
     // immediately invoked on first run
     var init = (function () {
+		alert('init');
 		store.get('data', function(data) {
 			if (data) {
 				showInfo();
