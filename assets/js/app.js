@@ -23,6 +23,7 @@ run(function () {
     // a little inline controller
     when('#welcome');
     when('#getinfo', function() {
+		alert('Trying to get info now');
 		if (navigator.network.connection.type == Connection.NONE) {
             alert("No internet connection - we can't fetch the data");
 			return;
